@@ -1,33 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function App() {
-  const ponerFilas = () => [
-    <tr>
-      <td>Jessen</td>
-      <td>Jessen@gmail.com</td>
-      <td>Jessen.com</td>
-    </tr>,
-    <tr>
-      <td>Bethsabee</td>
-      <td>Bethsabee@gmail.com</td>
-      <td>Bethsabee.com</td>
-    </tr>,
-  ]
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      usuarios: [
+        { nombre: 'jessen', correo: 'Jessen@gmail.com', enlace: 'Jessen.com' },
+        { nombre: 'beth', correo: 'beth@gmail.com', enlace: 'beth.com' },
+      ],
+    }
+  }
+  ponerFilas = () =>
+    this.state.usuarios.map((usuario) => (
+      <tr>
+        <td>{usuario.nombre}</td>
+        <td>{usuario.correo}</td>
+        <td>{usuario.enlace}</td>
+      </tr>
+    ))
 
-  return (
-    <div className='margen'>
-      <table className='tabla'>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Enlace</th>
-          </tr>
-        </thead>
-        <tbody>{ponerFilas()}</tbody>
-      </table>
-    </div>
-  )
+  render() {
+    return (
+      <div className='margen'>
+        <table className='tabla'>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Enlace</th>
+            </tr>
+          </thead>
+          <tbody>{this.ponerFilas()}</tbody>
+        </table>
+      </div>
+    )
+  }
 }
 
 export default App
