@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Menu from './Menu'
 import Usuarios from './Usuarios'
 
-const Tareas = () => <div>Tareas owo</div>
+const Tareas = () => <div className='margen'>Tareas owo</div>
 
 const App = () => {
   return (
